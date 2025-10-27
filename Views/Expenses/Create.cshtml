@@ -1,0 +1,15 @@
+@model ExpenseTracker.Models.Expense
+
+@{
+    ViewData["Title"] = "Create Expense";
+}
+
+<h1>Create Expense</h1>
+
+<form asp-action="Create" method="post">
+    <partial name="_ExpenseForm" model="Model" />
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

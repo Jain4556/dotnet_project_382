@@ -1,0 +1,60 @@
+@model IEnumerable<ExpenseTracker.Models.Expense>
+@{
+    ViewData["Title"] = "Expenses";
+}
+<h1>Expenses</h1>
+
+<div class="card">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Expenses</h2>
+    <div>
+      <a asp-action="Create" class="btn btn-primary">Add New Expense</a>
+      <a asp-action="Summary" class="btn btn-secondary ms-2">Summary</a>
+    </div>
+  </div>
+
+  <!-- existing search form and table here -->
+<form method="get" class="mb-3">
+    <input name="search" placeholder="Search description..." class="form-control" style="width:300px;display:inline-block" />
+    <button class="btn btn-primary">Search</button>
+    <a asp-action="Create" class="btn btn-success ms-2">New Expense</a>
+    <a asp-action="Summary" class="btn btn-secondary ms-2">Summary</a>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th class="text-end">Amount</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var e in Model)
+    {
+        <tr>
+            <td>@e.Date.ToString("yyyy-MM-dd")</td>
+            <td>@e.Description</td>
+            <td>@e.Category?.Name</td>
+            <td class="text-end">@e.Amount.ToString("C")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@e.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                <a asp-action="Delete" asp-route-id="@e.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                <a asp-action="Summary" class="btn btn-info mb-3">View Summary</a>
+
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+</div>
+

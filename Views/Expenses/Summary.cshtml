@@ -1,0 +1,55 @@
+@model IEnumerable<ExpenseTracker.Models.Expense>
+
+@{
+    ViewData["Title"] = "Expense Summary";
+}
+
+<h1>Expense Summary</h1>
+
+<h4>Total Expenses: ₹@ViewBag.TotalExpense.ToString("N2")</h4>
+
+
+
+<h3 class="mt-4">Category-wise Totals</h3>
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Category</th>
+            <th class="text-end">Total (₹)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in ViewBag.CategorySummary)
+        {
+            <tr>
+                <td>@c.Category</td>
+                <td class="text-end">@c.Total.ToString("N2")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3 class="mt-4">All Expenses</h3>
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th class="text-end">Amount (₹)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var expense in Model)
+        {
+            <tr>
+                <td>@expense.Date.ToShortDateString()</td>
+                <td>@expense.Description</td>
+                <td>@expense.Category?.Name</td>
+                <td class="text-end">@expense.Amount.ToString("N2")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Back to List</a>
