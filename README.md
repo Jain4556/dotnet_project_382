@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ExpenseTracker 💰
 Project Title
 
@@ -42,7 +42,7 @@ Optional: SQLite Studio
 
 Clone the repository
 
-git clone https://github.com/YOUR_USERNAME/ExpenseTracker.git
+git clone https://github.com/Jain4556/dotnet_project_382.git
 cd ExpenseTracker
 
 
