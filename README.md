@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ExpenseTracker 💰
 Project Title
 
@@ -93,3 +94,6 @@ View, edit, or delete existing expenses.
 Check the Summary page to see spending charts (category-wise and monthly).
 
 All your data is stored locally in expense.db (SQLite).
+=======
+# dotnet_project_382
+>>>>>>> cde3b8c8301e0be74359929008b913f348675266
